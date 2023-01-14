@@ -1,5 +1,5 @@
-public class Crossbowman extends Archer {
+public class Crossbowman extends Ranged {
     public Crossbowman(String name) {
-        super(name, 12, 10, new int[]{8, 10}, 15, 9, 16);
+        super(name, "Crossbowman", 12, 10, new int[]{8, 10}, 15, 9, 16);
     }
 }
