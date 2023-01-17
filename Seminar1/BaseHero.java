@@ -1,8 +1,10 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
-public class BaseHero {
+public abstract class BaseHero implements BaseInterface{
     String name, role;
-    int attack, defence, health, speed;
+    int attack, defence, health, maxHealth, speed;
     int[] damage;
 
     public BaseHero(String name, String role, int attack, int defence, int[] damage, int health, int speed) {
@@ -11,10 +13,20 @@ public class BaseHero {
         this.attack = attack;
         this.defence = defence;
         this.damage = damage;
-        this.health = health;
+        this.maxHealth = health;
+        this.health = maxHealth - new Random().nextInt(maxHealth);
         this.speed = speed;
     }
 
+    @Override
+    public void step(ArrayList<BaseHero> heroList) {
+
+    }
+
+    @Override
+    public String getInfo() {
+        return role + " " + String.valueOf(maxHealth) + " " + String.valueOf(health);
+    }
 
     @Override
     public String toString() {
