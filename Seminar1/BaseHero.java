@@ -19,7 +19,7 @@ public abstract class BaseHero implements BaseInterface{
     }
 
     @Override
-    public void step(ArrayList<BaseHero> heroList) {
+    public void step(ArrayList<BaseHero> heroList, BaseHero hero) {
 
     }
 

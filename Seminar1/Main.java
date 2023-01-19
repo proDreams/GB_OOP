@@ -11,9 +11,8 @@ public class Main {
         Random random = new Random();
         generateHeroes(heroesOne, 10, random, 1);
         generateHeroes(heroesTwo, 10, random, 2);
-//        System.out.println(heroesOne);
         heroesOne.forEach(n -> System.out.print(n.getInfo() + ", "));
-        heroesOne.forEach(n -> n.step(heroesOne));
+        heroesOne.forEach(n -> n.step(heroesOne, n));
 //        chooseHero(heroes, "Mage");
 //        ArrayList<BaseHero> farmer = new ArrayList<>();
 //        String[] farmerNames = {"Михаил", "Иван"};
@@ -91,26 +90,26 @@ public class Main {
                 "Платон", "Герман", "Игнат", "Святослав", "Анатолий", "Тихон", "Валерий", "Мирослав", "Ростислав", "Борис", "Филипп", "Демьян", "Гордей", "Валентин", "Демид", "Прохор", "Серафим", "Савва", "Яромир",
                 "Аркадий", "Архип", "Тарас", "Трофим"};
         int namesSize = namesList.length;
-        for (int i = 0; i < quantity; i++){
+        for (int i = 0; i < quantity; i++) {
             int type = rand.nextInt(4);
-            if (mode == 1){
-                switch (type){
+            if (mode == 1) {
+                switch (type) {
                     case 0 -> heroesList.add(new Farmer(namesList[rand.nextInt(namesSize)]));
                     case 1 -> heroesList.add(new Rogue(namesList[rand.nextInt(namesSize)]));
                     case 2 -> heroesList.add(new Sniper(namesList[rand.nextInt(namesSize)]));
                     case 3 -> heroesList.add(new Mage(namesList[rand.nextInt(namesSize)]));
                 }
             } else {
-                switch (type){
+                switch (type) {
                     case 0 -> heroesList.add(new Crossbowman(namesList[rand.nextInt(namesSize)]));
                     case 1 -> heroesList.add(new Monk(namesList[rand.nextInt(namesSize)]));
                     case 2 -> heroesList.add(new Spearman(namesList[rand.nextInt(namesSize)]));
                     case 3 -> heroesList.add(new Farmer(namesList[rand.nextInt(namesSize)]));
                 }
             }
-            }
         }
     }
+}
 //    private static void chooseHero(ArrayList<BaseHero> heroesList, String heroRole){
 //        System.out.printf("List of %s roles\n", heroRole);
 //        for (BaseHero hero : heroesList){
