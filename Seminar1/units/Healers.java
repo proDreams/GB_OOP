@@ -18,25 +18,26 @@ public class Healers extends BaseHero {
 
     @Override
     public void step(ArrayList<BaseHero> heroList) {
-        double max = 0;
+        int max = 100;
         int maxi = 0;
         for (int i = 0; i < heroList.size(); i++) {
-            String[] params = heroList.get(i).getInfo().split(" ");
-            if (Integer.parseInt(params[1]) != Integer.parseInt(params[2]) ){
-                double temp = Double.parseDouble(params[1]) / Double.parseDouble(params[2]) * 100;
-                if (temp > max){
-                    max = temp;
+            int currentHealth = heroList.get(i).getHealth();
+            if (currentHealth < 100) {
+                if (currentHealth < max) {
+                    max = currentHealth;
                     maxi = i;
                 }
             }
         }
-        healing(heroList.get(maxi));
+        if (max < 100){
+            healing(heroList.get(maxi));
+        }
     }
 
-    private void healing(BaseHero weak){
+    private void healing(BaseHero weak) {
         int currentHealth = weak.health;
         int healingPower = damage[0];
-        if (Math.abs(healingPower - currentHealth) > weak.maxHealth){
+        if (Math.abs(healingPower - currentHealth) > weak.maxHealth) {
             weak.health = weak.maxHealth;
             System.out.printf("\nПерсонаж %s %s вылечил персонажа %s %s полностью. Текущее здоровье: %d/%d", name, role, weak.name, weak.role, weak.health, weak.maxHealth);
         } else {

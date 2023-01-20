@@ -20,14 +20,16 @@ public abstract class BaseHero implements BaseInterface {
         this.speed = speed;
     }
 
+    public int getHealth(){
+        return (int) health /  maxHealth * 100;
+    }
     @Override
     public void step(ArrayList<BaseHero> heroList) {
-
     }
 
     @Override
     public String getInfo() {
-        return role + " " + String.valueOf(maxHealth) + " " + String.valueOf(health);
+        return name + " " + role + " HP:" + health + "/" + maxHealth;
     }
 
     @Override

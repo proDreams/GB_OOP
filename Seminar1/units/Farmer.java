@@ -1,5 +1,7 @@
 package units;
 
+import java.util.ArrayList;
+
 public class Farmer extends BaseHero {
     protected boolean supply;
 
@@ -12,6 +14,10 @@ public class Farmer extends BaseHero {
         this.supply = true;
     }
 
+    @Override
+    public void step(ArrayList<BaseHero> heroList) {
+        supply = true;
+    }
     @Override
     public String toString() {
         return super.toString() + ", Supply: ";

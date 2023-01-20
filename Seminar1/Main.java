@@ -5,16 +5,23 @@ import units.*;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
         ArrayList<BaseHero> heroesOne = new ArrayList<>();
         ArrayList<BaseHero> heroesTwo = new ArrayList<>();
         Random random = new Random();
         generateHeroes(heroesOne, 10, random, 1);
         generateHeroes(heroesTwo, 10, random, 2);
-        heroesOne.forEach(n -> System.out.print(n.getInfo() + ", "));
-        heroesOne.forEach(n -> n.step(heroesOne));
+        while (true){
+            heroesOne.forEach(n -> System.out.print(n.getInfo() + ", "));
+            heroesOne.forEach(n -> n.step(heroesOne));
+            System.out.println();
+            input.nextLine();
+        }
+
 //        chooseHero(heroes, "units.Mage");
 //        ArrayList<units.BaseHero> farmer = new ArrayList<>();
 //        String[] farmerNames = {"Михаил", "Иван"};
@@ -92,11 +99,12 @@ public class Main {
                 "Платон", "Герман", "Игнат", "Святослав", "Анатолий", "Тихон", "Валерий", "Мирослав", "Ростислав", "Борис", "Филипп", "Демьян", "Гордей", "Валентин", "Демид", "Прохор", "Серафим", "Савва", "Яромир",
                 "Аркадий", "Архип", "Тарас", "Трофим"};
         int namesSize = namesList.length;
+        ArrayList<BaseHero> farmers = new ArrayList<>();
         for (int i = 0; i < quantity; i++) {
             int type = rand.nextInt(4);
             if (mode == 1) {
                 switch (type) {
-                    case 0 -> heroesList.add(new Farmer(namesList[rand.nextInt(namesSize)]));
+                    case 0 -> farmers.add(new Farmer(namesList[rand.nextInt(namesSize)]));
                     case 1 -> heroesList.add(new Rogue(namesList[rand.nextInt(namesSize)]));
                     case 2 -> heroesList.add(new Sniper(namesList[rand.nextInt(namesSize)]));
                     case 3 -> heroesList.add(new Mage(namesList[rand.nextInt(namesSize)]));
@@ -110,6 +118,7 @@ public class Main {
                 }
             }
         }
+        heroesList.addAll(farmers);
     }
 }
 //    private static void chooseHero(ArrayList<units.BaseHero> heroesList, String heroRole){

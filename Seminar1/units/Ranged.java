@@ -13,26 +13,22 @@ public class Ranged extends BaseHero {
 
     @Override
     public void step(ArrayList<BaseHero> heroList) {
-        int freeFarmers = 0;
-        for (BaseHero hero : heroList){
+        boolean doShoot = true;
+        for (BaseHero hero : heroList) {
             if (hero.role.equals("Farmer")) {
                 if (((Farmer) hero).supply) {
-                    freeFarmers++;
+                    System.out.printf("\nПерсонаж %s %s совершил выстрел и потратил 0 стрел. Осталось стрел %d/%d", name, role, shoots, maxShoots);
+                    ((Farmer) hero).supply = false;
+                    doShoot = false;
+                    break;
                 }
             }
         }
-        for (BaseHero hero : heroList) {
-            if (freeFarmers > 0){
-                if (hero.role.equals("Farmer")) {
-                    if (((Farmer) hero).supply) {
-                        System.out.printf("\nПерсонаж %s %s совершил выстрел и потратил 0 стрел. Осталось стрел %d/%d", name, role, shoots, maxShoots);
-                        ((Farmer) hero).supply = false;
-                        break;
-                    }
-                }
-            } else {
+        if (doShoot) {
+            if (shoots > 0) {
                 System.out.printf("\nПерсонаж %s %s совершил выстрел и потратил 1 стрелу. Осталось стрел %d/%d", name, role, --shoots, maxShoots);
-                break;
+            } else {
+                System.out.printf("\nПерсонаж %s %s не может больше стрелять. Закончились стрелы %d/%d", name, role, shoots, maxShoots);
             }
         }
     }
