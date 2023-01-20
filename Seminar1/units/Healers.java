@@ -1,6 +1,6 @@
+package units;
+
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 public class Healers extends BaseHero {
     int mana;
@@ -17,7 +17,7 @@ public class Healers extends BaseHero {
 
 
     @Override
-    public void step(ArrayList<BaseHero> heroList, BaseHero hero) {
+    public void step(ArrayList<BaseHero> heroList) {
         double max = 0;
         int maxi = 0;
         for (int i = 0; i < heroList.size(); i++) {
@@ -30,18 +30,18 @@ public class Healers extends BaseHero {
                 }
             }
         }
-        healing(hero, heroList.get(maxi));
+        healing(heroList.get(maxi));
     }
 
-    private static void healing(BaseHero hero, BaseHero weak){
+    private void healing(BaseHero weak){
         int currentHealth = weak.health;
-        int healingPower = hero.damage[0];
+        int healingPower = damage[0];
         if (Math.abs(healingPower - currentHealth) > weak.maxHealth){
             weak.health = weak.maxHealth;
-            System.out.printf("\nПерсонаж %s %s вылечил персонажа %s %s полностью. Текущее здоровье: %d/%d", hero.name, hero.role, weak.name, weak.role, weak.health, weak.maxHealth);
+            System.out.printf("\nПерсонаж %s %s вылечил персонажа %s %s полностью. Текущее здоровье: %d/%d", name, role, weak.name, weak.role, weak.health, weak.maxHealth);
         } else {
             weak.health = Math.abs(healingPower - currentHealth);
-            System.out.printf("\nПерсонаж %s %s вылечил персонажа %s %s на %d ед. здоровья. Текущее здоровье: %d/%d", hero.name, hero.role, weak.name, weak.role, Math.abs(hero.damage[0]), weak.health, weak.maxHealth);
+            System.out.printf("\nПерсонаж %s %s вылечил персонажа %s %s на %d ед. здоровья. Текущее здоровье: %d/%d", name, role, weak.name, weak.role, Math.abs(healingPower), weak.health, weak.maxHealth);
         }
     }
 }

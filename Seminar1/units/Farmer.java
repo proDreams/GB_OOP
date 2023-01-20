@@ -1,14 +1,15 @@
-public class Farmer extends BaseHero {
-    int supply;
+package units;
 
-    public Farmer(String name, String role, int attack, int defence, int[] damage, int health, int speed, int supply) {
+public class Farmer extends BaseHero {
+    protected boolean supply;
+
+    public Farmer(String name, String role, int attack, int defence, int[] damage, int health, int speed) {
         super(name, role, attack, defence, damage, health, speed);
-        this.supply = supply;
     }
 
     public Farmer(String name){
         super(name, "Farmer", 1, 1, new int[] {1, 1}, 1, 3);
-        this.supply = 1;
+        this.supply = true;
     }
 
     @Override

@@ -1,6 +1,8 @@
 //Создать список из 50 персонажей выбранных случайным числом
 // и статический метод выбирающий из списка только элементы конкретного, переданного в параметре класса и выводящий их описание в консоль!
 
+import units.*;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -12,74 +14,74 @@ public class Main {
         generateHeroes(heroesOne, 10, random, 1);
         generateHeroes(heroesTwo, 10, random, 2);
         heroesOne.forEach(n -> System.out.print(n.getInfo() + ", "));
-        heroesOne.forEach(n -> n.step(heroesOne, n));
-//        chooseHero(heroes, "Mage");
-//        ArrayList<BaseHero> farmer = new ArrayList<>();
+        heroesOne.forEach(n -> n.step(heroesOne));
+//        chooseHero(heroes, "units.Mage");
+//        ArrayList<units.BaseHero> farmer = new ArrayList<>();
 //        String[] farmerNames = {"Михаил", "Иван"};
 //        for (String name : farmerNames) {
-//            farmer.add(new Farmer(name));
+//            farmer.add(new units.Farmer(name));
 //        }
-//        for (BaseHero character : farmer) {
+//        for (units.BaseHero character : farmer) {
 //            System.out.println(character);
 //        }
 //        System.out.println("====================");
 //
-//        ArrayList<BaseHero> rogue = new ArrayList<>();
+//        ArrayList<units.BaseHero> rogue = new ArrayList<>();
 //        String[] rogueNames = {"Михаил", "Иван"};
 //        for (String name : rogueNames) {
-//            rogue.add(new Rogue(name));
+//            rogue.add(new units.Rogue(name));
 //        }
-//        for (BaseHero character : rogue) {
+//        for (units.BaseHero character : rogue) {
 //            System.out.println(character);
 //        }
 //        System.out.println("====================");
 //
-//        ArrayList<BaseHero> sniper = new ArrayList<>();
+//        ArrayList<units.BaseHero> sniper = new ArrayList<>();
 //        String[] sniperNames = {"Михаил", "Иван"};
 //        for (String name : sniperNames) {
-//            sniper.add(new Sniper(name));
+//            sniper.add(new units.Sniper(name));
 //        }
-//        for (BaseHero character : sniper) {
+//        for (units.BaseHero character : sniper) {
 //            System.out.println(character);
 //        }
 //        System.out.println("====================");
 //
-//        ArrayList<BaseHero> crossbowman = new ArrayList<>();
+//        ArrayList<units.BaseHero> crossbowman = new ArrayList<>();
 //        String[] crossbowmanNames = {"Михаил", "Иван"};
 //        for (String name : crossbowmanNames) {
-//            crossbowman.add(new Crossbowman(name));
+//            crossbowman.add(new units.Crossbowman(name));
 //        }
-//        for (BaseHero character : crossbowman) {
+//        for (units.BaseHero character : crossbowman) {
 //            System.out.println(character);
 //        }
 //        System.out.println("====================");
 //
-//        ArrayList<BaseHero> spearman = new ArrayList<>();
+//        ArrayList<units.BaseHero> spearman = new ArrayList<>();
 //        String[] spearmanNames = {"Михаил", "Иван"};
 //        for (String name : spearmanNames) {
-//            spearman.add(new Spearman(name));
+//            spearman.add(new units.Spearman(name));
 //        }
-//        for (BaseHero character : spearman) {
+//        for (units.BaseHero character : spearman) {
 //            System.out.println(character);
 //        }
 //        System.out.println("====================");
 //
-//        ArrayList<BaseHero> mage = new ArrayList<>();
+//        ArrayList<units.BaseHero> mage = new ArrayList<>();
 //        String[] mageNames = {"Михаил", "Иван"};
 //        for (String name : mageNames) {
-//            mage.add(new Mage(name));
+//            mage.add(new units.Mage(name));
 //        }
-//        for (BaseHero character : mage) {
+//        for (units.BaseHero character : mage) {
 //            System.out.println(character);
 //        }
 //        System.out.println("====================");
 //
-//        ArrayList<BaseHero> monk = new ArrayList<>();
+//        ArrayList<units.BaseHero> monk = new ArrayList<>();
 //        String[] monkNames = {"Михаил", "Иван"};
 //        for (String name : monkNames) {
-//            monk.add(new Monk(name));
+//            monk.add(new units.Monk(name));
 //        }
-//        for (BaseHero character : monk) {
+//        for (units.BaseHero character : monk) {
 //            System.out.println(character);
 //        }
 //        System.out.println("====================");
@@ -110,9 +112,9 @@ public class Main {
         }
     }
 }
-//    private static void chooseHero(ArrayList<BaseHero> heroesList, String heroRole){
+//    private static void chooseHero(ArrayList<units.BaseHero> heroesList, String heroRole){
 //        System.out.printf("List of %s roles\n", heroRole);
-//        for (BaseHero hero : heroesList){
+//        for (units.BaseHero hero : heroesList){
 //            if (hero.toString().contains(heroRole)){
 //                System.out.println(hero);
 //            }
