@@ -1,12 +1,14 @@
 package units;
 
+import com.sun.tools.javac.Main;
+
 import java.util.ArrayList;
 
 public class Healers extends BaseHero {
     int mana;
 
-    public Healers(String name, String role, int attack, int defence, int[] damage, int health, int speed, int mana) {
-        super(name, role, attack, defence, damage, health, speed);
+    public Healers(ArrayList<BaseHero> teamList, String name, String role, int attack, int defence, int[] damage, int health, int speed, int mana, int x, int y) {
+        super(teamList, name, role, attack, defence, damage, health, speed, x, y);
         this.mana = mana;
     }
 
@@ -20,8 +22,8 @@ public class Healers extends BaseHero {
     public void step(ArrayList<BaseHero> heroList) {
         int max = 100;
         int maxi = 0;
-        for (int i = 0; i < heroList.size(); i++) {
-            int currentHealth = heroList.get(i).getHealth();
+        for (int i = 0; i < teamList.size(); i++) {
+            int currentHealth = teamList.get(i).getHealth();
             if (currentHealth < 100) {
                 if (currentHealth < max) {
                     max = currentHealth;
@@ -30,7 +32,7 @@ public class Healers extends BaseHero {
             }
         }
         if (max < 100){
-            healing(heroList.get(maxi));
+            healing(teamList.get(maxi));
         }
     }
 
