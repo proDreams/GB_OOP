@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class Healers extends BaseHero {
     int mana;
 
-    public Healers(ArrayList<BaseHero> teamList, String name, String role, int attack, int defence, int[] damage, int health, int speed, int mana, int x, int y) {
-        super(teamList, name, role, attack, defence, damage, health, speed, x, y);
+    public Healers(ArrayList<BaseHero> teamList, String name, String role, String icon, int attack, int defence, int[] damage, int health, int speed, int mana, int x, int y) {
+        super(teamList, name, role, icon, attack, defence, damage, health, speed, x, y);
         this.mana = mana;
     }
 

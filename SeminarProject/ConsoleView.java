@@ -21,7 +21,7 @@ public class ConsoleView {
         if (ConsoleView.step == 1) {
             System.out.println(AnsiColors.ANSI_GREEN + "First step" + AnsiColors.ANSI_RESET);
         } else {
-            System.out.println("Step " + step + ".");
+            System.out.println("\nStep " + step + ".");
         }
         step++;
 
@@ -31,15 +31,12 @@ public class ConsoleView {
             for (int j = 1; j <= Main.GANG_SIZE; j++) {
                 System.out.print(getHeroChar(new Vector2(j, i)));
             }
-//            System.out.println("|");
             System.out.println();
-//            System.out.println(Main.darkSide.get(i).getInfo());
             System.out.println(ConsoleView.mid10);
         }
         for (int j = 1; j <= Main.GANG_SIZE; j++) {
             System.out.print(getHeroChar(new Vector2(j, Main.GANG_SIZE)));
         }
-//        System.out.println("|");
         System.out.println();
         System.out.println(ConsoleView.bott10);
         System.out.println("Press Enter");
