@@ -44,14 +44,12 @@ public class Healers extends BaseHero {
     }
 
     private void healing(BaseHero weak) {
-        int currentHealth = (int) weak.health;
-        int healingPower = damage[0];
-        if (Math.abs(healingPower - currentHealth) > weak.maxHealth) {
-            weak.health = weak.maxHealth;
+        float healingPower = damage[0];
+        weak.getDamage(healingPower);
+        if (weak.health == weak.maxHealth) {
             System.out.printf("\nПерсонаж %s %s вылечил персонажа %s %s полностью. Текущее здоровье: %d/%d", name, role, weak.name, weak.role, (int) weak.health, weak.maxHealth);
         } else {
-            weak.health = Math.abs(healingPower - currentHealth);
-            System.out.printf("\nПерсонаж %s %s вылечил персонажа %s %s на %d ед. здоровья. Текущее здоровье: %d/%d", name, role, weak.name, weak.role, Math.abs(healingPower), (int) weak.health, weak.maxHealth);
+            System.out.printf("\nПерсонаж %s %s вылечил персонажа %s %s на %d ед. здоровья. Текущее здоровье: %d/%d", name, role, weak.name, weak.role, (int) Math.abs(healingPower), (int) weak.health, weak.maxHealth);
         }
     }
 }
