@@ -23,6 +23,7 @@ public class Ranged extends BaseHero {
         float attackPower;
         if (target.x <= constMax) {
             attackPower = damage[1];
+
         } else if (target.x >= constMin) {
             attackPower = damage[0];
         } else {
@@ -51,19 +52,7 @@ public class Ranged extends BaseHero {
         }
     }
 
-    private Vector2 getTarget(ArrayList<BaseHero> heroList) {
-        float minDistance = 100;
-        int minIndex = 0;
-        for (int i = 0; i < heroList.size(); i++) {
-            float temp = getPosition().getDistance(heroList.get(0).getPosition().x, heroList.get(0).getPosition().y);
-            if (temp < minDistance && heroList.get(i).health > 0) {
-                minDistance = temp;
-                minIndex = i;
-            }
-//            System.out.println(getPosition().getDistance(target.getPosition().x, target.getPosition().y));
-        }
-        return new Vector2(minDistance, minIndex);
-    }
+
 
     @Override
     public String toString() {
