@@ -37,14 +37,9 @@ public abstract class BaseHero implements BaseInterface {
 
     @Override
     public String getInfo() {
-//        return name + " " + role + " ♥️: " + health + "/" + maxHealth + ", ⚔️: " + attack;
         return String.format("%-10s %-13s%-3s %s: %-3d/ %-3d %s: %-5d |", name, role, icon, "\uD83E\uDDE1", (int) health, maxHealth, "⚔", attack);
-//        return "";
     }
-//    public String getInfo(){
-//        String outStr = String.format("⚔ %d\t\uD83D\uDEE1 %d\t♥️%.1f\t☠️%d", attack,defence,health,(damage[0] + damage[1])/2,speed);
-//        return outStr;
-//    }
+
 
     @Override
     public String toString() {

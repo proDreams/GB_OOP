@@ -15,6 +15,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             ConsoleView.view();
+            System.out.println("Press ENTER");
+            scanner.nextLine();
+
             System.out.println("\nХодит WhiteSide");
             whiteSide.forEach(n -> n.step(darkSide));
             System.out.println("\n\nХодит DarkSide");
