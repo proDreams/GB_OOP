@@ -12,13 +12,14 @@ public class Main {
 
     public static void main(String[] args) {
         init();
-        ArrayList<BaseHero> units = new ArrayList<>();
-        units.addAll(whiteSide);
-        units.addAll(darkSide);
-        Comparator<BaseHero> comparator = Comparator.comparing(BaseHero::getSpeed);
+
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
+            ArrayList<BaseHero> units = new ArrayList<>();
+            units.addAll(whiteSide);
+            units.addAll(darkSide);
+            Comparator<BaseHero> comparator = Comparator.comparing(BaseHero::getSpeed);
             units.sort(comparator);
             ConsoleView.view();
             System.out.println("Press ENTER");
