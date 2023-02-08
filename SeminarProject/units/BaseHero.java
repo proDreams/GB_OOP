@@ -2,18 +2,18 @@ package units;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 
 public abstract class BaseHero implements BaseInterface {
-    protected String name, role, icon;
+    protected String name, role, icon, team;
     protected int attack, defence, maxHealth, speed;
     protected float health;
     protected int[] damage;
     protected ArrayList<BaseHero> teamList;
     private Vector2 position;
+    protected boolean status;
 
 
-    public BaseHero(ArrayList<BaseHero> teamList, String name, String role, String icon, int attack, int defence, int[] damage, int health, int speed, int x, int y) {
+    public BaseHero(ArrayList<BaseHero> teamList, String name, String role, String icon, int attack, int defence, int[] damage, int health, int speed, int x, int y, String team, boolean status) {
         this.teamList = teamList;
         this.name = name;
         this.role = role;
@@ -25,6 +25,8 @@ public abstract class BaseHero implements BaseInterface {
         this.health = maxHealth;
         this.speed = speed;
         this.position = new Vector2(x, y);
+        this.team = team;
+        this.status = status;
     }
 
     public int getHealth() {
@@ -50,8 +52,12 @@ public abstract class BaseHero implements BaseInterface {
         return position;
     }
 
-    public String getName() {
+    public String getRole() {
         return role;
+    }
+
+    public String getName() {
+        return name;
     }
 
     protected void getDamage(float attackPower) {
@@ -71,6 +77,9 @@ public abstract class BaseHero implements BaseInterface {
         float minDistance = 100;
         int minIndex = 0;
         for (int i = 0; i < heroList.size(); i++) {
+            if (heroList.get(i).getTeam().equals(getTeam())) {
+                continue;
+            }
             float temp = getPosition().getDistance(heroList.get(0).getPosition().x, heroList.get(0).getPosition().y);
             if (temp < minDistance && heroList.get(i).health > 0) {
                 minDistance = temp;
@@ -82,5 +91,17 @@ public abstract class BaseHero implements BaseInterface {
 
     public void setPosition(float x, float y) {
         this.position = new Vector2(x, y);
+    }
+
+    public String getTeam() {
+        return team;
+    }
+
+    public boolean getStatus() {
+        return status;
+    }
+
+    public int getSpeed() {
+        return speed;
     }
 }

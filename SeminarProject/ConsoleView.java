@@ -1,5 +1,4 @@
 
-import units.BaseHero;
 import units.Vector2;
 
 import java.util.Collections;
@@ -54,17 +53,17 @@ public class ConsoleView {
         for (int i = 0; i < Main.GANG_SIZE; i++) {
             if (Main.whiteSide.get(i).getPosition().isEquals(position)) {
                 if (Main.whiteSide.get(i).heroHP() == 0)
-                    str = "|" + AnsiColors.ANSI_RED + Main.whiteSide.get(i).getName().toUpperCase().charAt(0) + AnsiColors.ANSI_RESET;
+                    str = "|" + AnsiColors.ANSI_RED + Main.whiteSide.get(i).getRole().toUpperCase().charAt(0) + AnsiColors.ANSI_RESET;
                 else {
-                    str = "|" + AnsiColors.ANSI_GREEN + Main.whiteSide.get(i).getName().toUpperCase().charAt(0) + AnsiColors.ANSI_RESET;
+                    str = "|" + AnsiColors.ANSI_GREEN + Main.whiteSide.get(i).getRole().toUpperCase().charAt(0) + AnsiColors.ANSI_RESET;
                     alive = true;
                 }
             }
             if (Main.darkSide.get(i).getPosition().isEquals(position) && !alive) {
                 if (Main.darkSide.get(i).heroHP() == 0)
-                    str = "|" + AnsiColors.ANSI_RED + Main.darkSide.get(i).getName().toUpperCase().charAt(0) + AnsiColors.ANSI_RESET;
+                    str = "|" + AnsiColors.ANSI_RED + Main.darkSide.get(i).getRole().toUpperCase().charAt(0) + AnsiColors.ANSI_RESET;
                 else
-                    str = "|" + AnsiColors.ANSI_BLUE + Main.darkSide.get(i).getName().toUpperCase().charAt(0) + AnsiColors.ANSI_RESET;
+                    str = "|" + AnsiColors.ANSI_BLUE + Main.darkSide.get(i).getRole().toUpperCase().charAt(0) + AnsiColors.ANSI_RESET;
             }
         }
         return str;

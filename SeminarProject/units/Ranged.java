@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Ranged extends BaseHero {
     int shoots, maxShoots;
 
-    public Ranged(ArrayList<BaseHero> teamList, String name, String role, String icon, int attack, int defence, int[] damage, int health, int speed, int shoots, int x, int y) {
-        super(teamList, name, role, icon, attack, defence, damage, health, speed, x, y);
+    public Ranged(ArrayList<BaseHero> teamList, String name, String role, String icon, int attack, int defence, int[] damage, int health, int speed, int shoots, int x, int y, String team, boolean status) {
+        super(teamList, name, role, icon, attack, defence, damage, health, speed, x, y, team, status);
         this.shoots = shoots;
         this.maxShoots = shoots;
     }
@@ -31,7 +31,7 @@ public class Ranged extends BaseHero {
         }
 
         boolean doShoot = true;
-        for (BaseHero hero : teamList) {
+        for (BaseHero hero : heroList) {
             if (hero.role.equals("Farmer")) {
                 if (((Farmer) hero).supply) {
                     heroList.get((int) target.y).getDamage(attackPower);
